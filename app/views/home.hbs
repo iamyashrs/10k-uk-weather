@@ -1,0 +1,123 @@
+<section>
+    {{#if error}}
+    <div class="errors" role="alert" tabindex="0">
+      <p>Hmm, there seems to be an error with your choices.</p>
+    </div>
+    {{/if}}
+
+    {{#if guess}}
+    <div class="notice" role="alert" tabindex="0">
+      <img src="img/smile.svg" height="32" width="32"/>
+      <p>You guessed: {{guess}}.<br>Answer: <strong>{{latest_value}}</strong>.</p>
+    </div>
+    {{/if}}
+
+    <form method="GET" action="/" id="options" role="form">
+    <label>
+      <select name="region" role="listbox" tabindex="0">
+        <option value="UK" {{#ifCond region "UK"}}selected{{/ifCond}}>UK</option>
+        <option value="England"{{#ifCond region "England"}}selected{{/ifCond}}>England</option>
+        <option value="Wales"{{#ifCond region "Wales"}}selected{{/ifCond}}>Wales</option>
+        <option value="Scotland"{{#ifCond region "Scotland"}}selected{{/ifCond}}>Scotland</option>
+      </select>
+    </label>
+    <label>
+      <select name="mode" role="listbox" tabindex="0">
+        <option value="Max Temp" {{#ifCond mode "Max Temp"}}selected{{/ifCond}}>Max Temp</option>
+        <option value="Min Temp" {{#ifCond mode "Min Temp"}}selected{{/ifCond}}>Min Temp</option>
+        <option value="Mean Temp" {{#ifCond mode "Mean Temp"}}selected{{/ifCond}}>Mean Temp</option>
+        <option value="Rainfall" {{#ifCond mode "Rainfall"}}selected{{/ifCond}}>Rainfall</option>
+        <option value="Sunshine" {{#ifCond mode "Sunshine"}}selected{{/ifCond}}>Sunshine</option>
+      </select>
+    </label>
+      <input type="submit" id="round" value="Go!">
+    </form>
+
+    <table aria-describedby="tblDesc" id="table-data" summary="Column one has the Year, other columns shows the data per month and annual." role="table">
+        <caption><strong>Weather Data</strong><br>
+        <small>This table describes the weather data for {{region}} region on '{{mode}}' mode where column one list the years and other columns lists the data per month and annualy.<br>All values refers in <strong>{{{dimention}}}</strong>.</small>
+        </caption>
+        <tr role="row">
+          <td scope="col">Year</td>
+          <th scope="col" role="columnheader">January</th>
+          <th scope="col" role="columnheader">Feburary</th>
+          <th scope="col" role="columnheader">March</th>
+          <th scope="col" role="columnheader">April</th>
+          <th scope="col" role="columnheader">May</th>
+          <th scope="col" role="columnheader">June</th>
+          <th scope="col" role="columnheader">July</th>
+          <th scope="col" role="columnheader">August</th>
+          <th scope="col" role="columnheader">September</th>
+          <th scope="col" role="columnheader">October</th>
+          <th scope="col" role="columnheader">November</th>
+          <th scope="col" role="columnheader">December</th>
+          <th scope="col" role="columnheader">Annual</th>
+        </tr>
+
+        {{#each data}}
+        <tr role="row">
+          <th scope="row" class="table-data-year">{{Year}}</th>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year JAN ../guess}}<span id="missing">?</span>{{else}}{{JAN}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year FEB ../guess}}<span id="missing">?</span>{{else}}{{FEB}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year MAR ../guess}}<span id="missing">?</span>{{else}}{{MAR}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year APR ../guess}}<span id="missing">?</span>{{else}}{{APR}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year MAY ../guess}}<span id="missing">?</span>{{else}}{{MAY}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year JUN ../guess}}<span id="missing">?</span>{{else}}{{JUN}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year JUL ../guess}}<span id="missing">?</span>{{else}}{{JUL}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year AUG ../guess}}<span id="missing">?</span>{{else}}{{AUG}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year SEP ../guess}}<span id="missing">?</span>{{else}}{{SEP}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year OCT ../guess}}<span id="missing">?</span>{{else}}{{OCT}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year NOV ../guess}}<span id="missing">?</span>{{else}}{{NOV}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year DEC ../guess}}<span id="missing">?</span>{{else}}{{DEC}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-annual">{{ANN}}</td>
+        </tr>
+        {{/each}}
+    </table>
+
+    <h1 id="heading-title">Visualization Fun</h1>
+
+    <div class="container">
+      <div class="container-div-half">
+        <h3 id="chart-data-list-heading"></h3>
+        <ul id="chartList"></ul>
+      </div>
+      <div class="container-div-half">
+        <div id="chartContainer">
+          <div id="chartBoard"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="container-div">
+        <div class="chart">
+          <h3>Decade Year's Data Visualization</h3>
+          <pre>{{chart}}</pre>
+          <p>Year</p>
+          <small>({{years.[0]}}-{{last years}})</small>
+        </div>
+      </div>
+      <div class="container-div">
+        <div class="fact">
+          <h2>Did you know?</h2>
+          <p>{{{fact}}}</p>
+        </div>
+      </div>
+
+      <div class="average container-div">
+          <div class="text-center">
+              <h1>Let's play a GAME!</h1>
+              <form method="GET" action="/" role="form">
+                <p id="game">The latest reading has been hidden for you. Let's see how correctly you can guess the latest reading for {{latest_month}}, {{latest_year}}?</p>
+                <input type="text" name="guess" id="guess" required aria-required="true" autocorrect="off" aria-describedby="game" placeholder="Ooo.. What could it be?" aria-invalid="true">
+                <p><small>Hint: Look at previous month data to make a better guess. ;)</small></p><br>
+                <input id="region" type="hidden" name="region" value="{{region}}">
+                <input id="mode" type="hidden" name="mode" value="{{mode}}">
+                <input type="submit" id="round" value="Let's see!">
+              </form>
+              <br/>
+          </div>
+      </div>
+    </div>
+    
+</section>

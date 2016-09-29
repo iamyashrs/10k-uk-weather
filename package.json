@@ -1,0 +1,40 @@
+{
+  "name": "10K-UK-Weather",
+  "version": "0.0.1",
+  "author": "Yash Raj Singh <mail.yashrajsingh@gmail.com>",
+  "description": "UK Weather Analyzer & Visualization",
+  "contributors": [
+    {
+      "name": "Yash Raj Singh",
+      "email": "mail.yashrajsingh@gmail.com"
+    }
+  ],
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashrajsingh/10k-uk-weather.git"
+  },
+  "license": "(ISC) UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/yashrajsingh/10k-uk-weather/issues"
+  },
+  "homepage": "https://github.com/yashrajsingh/10k-uk-weather#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-minify": "0.2.0",
+    "hbs": "^4.0.0",
+    "ascii-chart": "^1.3.1",
+    "request": "^2.72.0",
+    "express-minify-html":"0.5.0",
+    "serve-favicon":"2.3.0",
+    "compression":"1.6.2",
+    "serve-static": "1.11.1"
+  },
+  "engines": {
+    "node": "6.3.0"
+  }
+}

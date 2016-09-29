@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" id="10k-uk-weather" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ page_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="description" content="UK Weather Data Visualization in 10KB.">
+    <meta name="author" content="Yash Raj Singh" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="theme-color" content="#f34258">
+    <meta name="msapplication-TileColor" content="#f34258">
+    <link rel="canonical" href="/">
+    <!--[if lt IE 9]>
+    <script src="/j/html5shiv.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body onload="GenerateChart();">
+    <header role="banner">
+        <h1 class="site-title"><a href="/"><img src="img/london.svg" width="75" height="75"/><br>
+            10K <b>UK Weather</b></a></h1>
+        <p class="site-subtitle">Weather Data for UK Regions<br>
+        <small>Choose the region and mode of data to load more</small></p>
+    </header>
+
+    <main role="main">{{{body}}}</main>
+
+    <footer role="colophon">
+        <p class="center-block">
+          This website contains data from public sector information licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v1.0</a> (<a href="http://www.metoffice.gov.uk/climate/uk/datasets/#">view data source</a>).
+            <br/>
+            Project build by <a href="http://yashrajsingh.net/" target="_blank">Yash Raj Singh</a> for <a href="https://a-k-apart.com/" target="_blank">10K Apart Challenge 2016</a>.
+            <br/>
+            <a href="https://github.com/yashrajsingh/10k-uk-weather" target="_blank">
+                Fork on Github
+            </a>
+        </p>
+    </footer>
+    <script src="js/index.min.js" async defer></script>
+</body>
+</html>
