@@ -56,7 +56,7 @@ router.get('/', function (req, res, next) {
             res.locals.region = region;
             res.locals.mode = mode;
 
-            var index, j, latest_value;
+            var index, j, latest_value, latest_date;
             var data_ann = [];
             var data_yr = [];
             var latest_year_values = [];
@@ -87,7 +87,8 @@ router.get('/', function (req, res, next) {
             res.locals.latest_year = data_yr[data_yr.length - 1];
             res.locals.latest_month = MONTHS[latest_year_values_without_null.length-1];
             res.locals.latest_value = latest_year_values_without_null[latest_year_values_without_null.length - 1];
-            res.locals.valueHash = res.locals.latest_value + res.locals.latest_year;
+
+            res.locals.valueHash = res.locals.latest_value + res.locals.latest_year + latest_year_values_without_null.length;
             if (guess){
                 res.locals.guess = guess;
             }

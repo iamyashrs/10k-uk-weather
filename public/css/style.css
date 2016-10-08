@@ -22,7 +22,8 @@ nav ul,ol,ul{
 
 a {
     color: #000;
-    text-decoration: underline;
+    text-decoration: none;
+    border-bottom: 1px dashed #000;
 }
 
 p {
@@ -73,6 +74,7 @@ header {
 .site-title a {
   color: white;
   text-decoration: none;
+  border-bottom: none; 
 }
 
 .site-subtitle, #options {
@@ -199,6 +201,10 @@ table#table-data {
   margin-top: 20px;
 }
 
+h3#chart-data-list-heading {
+
+}
+
 .container {
   display: block;
   width: auto;
@@ -234,25 +240,25 @@ table#table-data {
   font-size: 14px;
   background-color: yellow;
   color:black;
-box-shadow: 0 3px #abab14;
-    -webkit-transform:rotate(2deg);
-    -moz-transform:rotate(3deg);
-    -ms-transform:rotate(3deg);
-    transform:rotate(2deg);
+  box-shadow: 0 3px #abab14;
+  -webkit-transform:rotate(2deg);
+  -moz-transform:rotate(3deg);
+  -ms-transform:rotate(3deg);
+  transform:rotate(2deg);
 }
 
 .chart {
-    width: 250px;
-    background: #ff56ac;
-    padding: 10px;
-    margin: 0 auto;
-    box-shadow: 0 3px #de1b7e;
+  width: 250px;
+  background: #ff56ac;
+  padding: 10px;
+  margin: 0 auto;
+  box-shadow: 0 3px #de1b7e;
 }
 
 
 #chartContainer{
   margin: 0 auto;
-    clear: both;
+  clear: both;
   display: block;
   position: relative;
   height: 300px;
@@ -308,8 +314,10 @@ box-shadow: 0 3px #abab14;
 
 .data-year-li {
   list-style-type: none;
-  float:left;
-  margin-right: 20px;
+  display: inline-block;
+  text-align: left;
+  /*margin-right: 5px;*/
+  min-width: 100px;
 }
 
 h1#heading-title {

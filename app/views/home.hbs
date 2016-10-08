@@ -35,7 +35,7 @@
 
     <table aria-describedby="tblDesc" id="table-data" summary="Column one has the Year, other columns shows the data per month and annual." role="table">
         <caption><strong>Weather Data</strong><br>
-        <small>This table describes the weather data for {{region}} region on '{{mode}}' mode where column one list the years and other columns lists the data per month and annualy.<br>All values refers in <strong>{{{dimention}}}</strong>.</small>
+        <small>All values refers in <strong>{{{dimention}}}</strong>.<br>This table describes the weather data for {{region}} region on '{{mode}}' mode where column one list the years and other columns lists the data per month and annualy.</small>
         </caption>
         <tr role="row">
           <td scope="col">Year</td>
@@ -57,18 +57,18 @@
         {{#each data}}
         <tr role="row">
           <th scope="row" class="table-data-year">{{Year}}</th>
-          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year JAN ../guess}}<span id="missing">?</span>{{else}}{{JAN}}{{/ifCondHash}}</td>
-          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year FEB ../guess}}<span id="missing">?</span>{{else}}{{FEB}}{{/ifCondHash}}</td>
-          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year MAR ../guess}}<span id="missing">?</span>{{else}}{{MAR}}{{/ifCondHash}}</td>
-          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year APR ../guess}}<span id="missing">?</span>{{else}}{{APR}}{{/ifCondHash}}</td>
-          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year MAY ../guess}}<span id="missing">?</span>{{else}}{{MAY}}{{/ifCondHash}}</td>
-          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year JUN ../guess}}<span id="missing">?</span>{{else}}{{JUN}}{{/ifCondHash}}</td>
-          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year JUL ../guess}}<span id="missing">?</span>{{else}}{{JUL}}{{/ifCondHash}}</td>
-          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year AUG ../guess}}<span id="missing">?</span>{{else}}{{AUG}}{{/ifCondHash}}</td>
-          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year SEP ../guess}}<span id="missing">?</span>{{else}}{{SEP}}{{/ifCondHash}}</td>
-          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year OCT ../guess}}<span id="missing">?</span>{{else}}{{OCT}}{{/ifCondHash}}</td>
-          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year NOV ../guess}}<span id="missing">?</span>{{else}}{{NOV}}{{/ifCondHash}}</td>
-          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year DEC ../guess}}<span id="missing">?</span>{{else}}{{DEC}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year JAN 1 ../guess}}<span id="missing">?</span>{{else}}{{JAN}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year FEB 2 ../guess}}<span id="missing">?</span>{{else}}{{FEB}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year MAR 3 ../guess}}<span id="missing">?</span>{{else}}{{MAR}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year APR 4 ../guess}}<span id="missing">?</span>{{else}}{{APR}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year MAY 5 ../guess}}<span id="missing">?</span>{{else}}{{MAY}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year JUN 6 ../guess}}<span id="missing">?</span>{{else}}{{JUN}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year JUL 7 ../guess}}<span id="missing">?</span>{{else}}{{JUL}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year AUG 8 ../guess}}<span id="missing">?</span>{{else}}{{AUG}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year SEP 9 ../guess}}<span id="missing">?</span>{{else}}{{SEP}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year OCT 10 ../guess}}<span id="missing">?</span>{{else}}{{OCT}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year NOV 11 ../guess}}<span id="missing">?</span>{{else}}{{NOV}}{{/ifCondHash}}</td>
+          <td role="cell" class="table-data-month">{{#ifCondHash ../valueHash Year DEC 12 ../guess}}<span id="missing">?</span>{{else}}{{DEC}}{{/ifCondHash}}</td>
           <td role="cell" class="table-data-annual">{{ANN}}</td>
         </tr>
         {{/each}}

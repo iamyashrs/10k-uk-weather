@@ -29,8 +29,8 @@ hbs.registerHelper('ifCond', function(v1, v2, options) {
   return options.inverse(this);
 });
 
-hbs.registerHelper('ifCondHash', function(v1, v2, v3, guess, options) {
-  var v4 = v2 + v3;
+hbs.registerHelper('ifCondHash', function(v1, v2, v3, index, guess, options) {
+  var v4 = v2 + v3 + index;
   if(v1 == v4 && guess == null) {
     return options.fn(this);
   }

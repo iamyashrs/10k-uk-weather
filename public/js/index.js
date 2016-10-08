@@ -65,7 +65,7 @@ SimpleChartJS = function() {
 		pointDiv.style.top = pt.y + "px";
 		pointDiv.className = "ChartPoint";
 		
-		pointDiv.title = pt.info;
+		pointDiv.title = pt.amount;
 		pointDiv.onmouseover = function() { HighlightInfo(pt.infoDivId,true); };
 		pointDiv.onmouseout = function() { HighlightInfo(pt.infoDivId,false); };
 		
@@ -142,7 +142,7 @@ SimpleChartJS = function() {
 		//draw y axis:
 		// var yAxis_top = {x:lastX/2,y:boundingRect.bottom/6-_axis_extra_size};
 		var yAxis_top = {x:lastX/2,y:0};
-		var xAxis_bottom = {x:lastX/2,y:-boundingRect.bottom/6-_axis_extra_size};
+		var xAxis_bottom = {x:lastX/2,y:-boundingRect.bottom/7-_axis_extra_size};
 		// var xAxis_bottom = {x:lastX/2,y:-20};
 		DrawLine(yAxis_top,xAxis_bottom,chartBoardElement,true);
 		
@@ -314,7 +314,8 @@ function GenerateChart()
 	  
 	  // currObj.info = "In year " + years[i] + ", " + region +  " had a " + mode + " of " + size + ".";
 
-	  currObj.info = "<strong>" + years[i] + "</strong>" + "->" + size;
+	  currObj.info = "<strong>" + years[i] + "</strong>" + ": " + size;
+	  currObj.amount = years[i] + ": " + size;
 	  currObj.pointDivId = "pt"+"_x_" + currObj.x + "_y_" + currObj.y + "_Num_"+ i;
 	  currObj.infoDivId = "pt_Info_"+"_x_" + currObj.x + "_y_" + currObj.y + "_Num_"+ i;
 	  currObj.Num = i;
